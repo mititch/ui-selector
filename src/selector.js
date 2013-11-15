@@ -4,43 +4,60 @@
 
 angular.module('ui.selector', [])
     .directive('uiSelector', [ '$log', '$parse',
-        function(log, $parse) {
+        function (log, $parse) {
             return {
                 restrict: 'E',
-                template:
-                    '<div>' +
-                        '<textarea>{{text}}</textarea>' +
-                        '<button>Edit</button>' +
-                        '<ul><li ng-repeat="check in checks">{{check.name}}</li></ul>' +
+                template: '<div>' +
+                    '<textarea ng-model="text"></textarea>' +
+                    '<button ng-click="edit()">Edit</button>' +
+                    '<div ng-show="editMode">' +
+                    '<ul>' +
+                    '<li ng-repeat="check in checkList">' +
+                    '{{check.name}}: <input type="checkbox" ng-model="check.value">' +
+                    '</li>' +
+                    '</ul>' +
+                    '</div>' +
                     '</div>',
-                replace : true,
+                replace: true,
                 scope: {
-                    checkArray : '='
+                    checkList: '='
                 },
-                link: function(scope, element, attrs) {
-                    scope.edit = function() {
+                link: function (scope, element, attrs) {
+
+                    scope.editMode = false;
+                    scope.edit = function () {
                         //TODO: Open dialog
-                        log.info('Open dialog')
+                        scope.editMode = true;
                     }
 
-                    scope.checks = $parse(attrs.checkArray);
+                    scope.$watch(
+                        function (scope) {
+                            return scope.checkList
+                        },
+                        function (value) {
+                            log.log(value);
+                            var trueArray = [];
 
-                    /*scope.$watch('checkArray', function(value) {
-                        scope.checkArr = value;
-                        scope.text = 'assad';
-                    });*/
+                            angular.forEach(value, function (value) {
+                                !value.value || this.push(value.name);
+                            }, trueArray);
+
+                            scope.text = trueArray.join('\n');
+                        },
+                        true
+                    );
                 }
             }
         }]
     )
     .directive('uiCheckEditDialog', [ '$log',
-        function(log) {
+        function (log) {
             return {
                 scope: {
-                    checks : '=checks'
+                    checks: '=checks'
                 },
-                restrict : 'E',
-                template : '<ul><li ng-repeat="check in checks"><input type="checkbox" ng-model="check"></li></ul>'
+                restrict: 'E',
+                template: '<ul><li ng-repeat="check in checks"><input type="checkbox" ng-model="check"></li></ul>'
 
             }
         }]

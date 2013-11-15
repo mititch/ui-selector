@@ -6,8 +6,9 @@
 // Declare app level module which depends on filters, and services
 var selectorDemoApp = angular.module('selectorDemoApp', ['ui.selector']);
 
-selectorDemoApp.controller('Ctrl', function($scope) {
-    $scope.checkData = [
+selectorDemoApp.controller('Ctrl', ['$scope', function ($scope) {
+    $scope.checkData =
+    {checkList: [
         {
             name: 'Naomi',
             value: false
@@ -17,7 +18,14 @@ selectorDemoApp.controller('Ctrl', function($scope) {
             value: true
         },
         {
-            name : 'Zebra',
-            value : false
+            name: 'Zebra',
+            value: true
         }
-]});
+    ]
+    };
+
+    $scope.addCheck = function () {
+        $scope.checkData.checkList.push({name: 'NewMen', value: true});
+    }
+
+}]);

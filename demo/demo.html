@@ -2,18 +2,22 @@
 <html ng-app="selectorDemoApp">
 <head>
     <title></title>
-    <!--link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet"-->
+    <link href="demo.css" rel="stylesheet">
 </head>
 <body ng-controller="Ctrl">
 
-    <ui-selector checkArray="checkData"></ui-selector>
+    <ui-selector check-list="checkData.checkList"></ui-selector>
     <p>------</p>
     <ul>
-        <li ng-repeat="checkDataItem in checkData">{{checkDataItem.name}}</li>
+        <li ng-repeat="checkDataItem in checkData.checkList">{{checkDataItem.name}}</li>
     </ul>
+    <ul>
+        <li ng-repeat="checkDataItem in checkList2">{{checkDataItem.name}}</li>
+    </ul>
+    <button ng-click="addCheck()">Add</button>
 
 </body>
-    <script src="http://code.angularjs.org/1.2.0/angular.min.js"></script>
+    <script src="../lib/angular-1.2.0/angular.js"></script>
     <script src="../src/selector.js"></script>
     <script src="demo.js"></script>
 </html>
