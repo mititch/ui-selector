@@ -6,15 +6,15 @@
 </head>
 <body ng-controller="Ctrl">
 
-    <ui-selector check-list="checkData.checkList"></ui-selector>
-    <p>------</p>
+    <h3>Root scope data</h3>
     <ul>
         <li ng-repeat="checkDataItem in checkData.checkList">{{checkDataItem.name}}</li>
     </ul>
-    <ul>
-        <li ng-repeat="checkDataItem in checkList2">{{checkDataItem.name}}</li>
-    </ul>
-    <button ng-click="addCheck()">Add</button>
+    <button ng-click="addNewCheck()">Add</button>
+
+    <h3>Directive usage</h3>
+    <ui-selector items-list="checkData.checkList" item-text="name" item-value="value"></ui-selector>
+
 
 </body>
     <script src="../lib/angular-1.2.0/angular.js"></script>

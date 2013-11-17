@@ -24,8 +24,8 @@ selectorDemoApp.controller('Ctrl', ['$scope', function ($scope) {
     ]
     };
 
-    $scope.addCheck = function () {
-        $scope.checkData.checkList.push({name: 'NewMen', value: true});
+    $scope.addNewCheck = function () {
+        $scope.checkData.checkList.push({name: 'New one', value: true});
     }
 
 }]);
