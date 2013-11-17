@@ -21,7 +21,7 @@
 
 describe('Directive: uiSelector', function () {
     var element, scope, compile, defaultData,
-        validTemplate = '<ui-selector check-list="data.checkList"></ui-selector>';
+        validTemplate = '<ui-selector items-list="data.checkList" item-text-prop="name" item-value-prop="value"></ui-selector>';
 
     function createDirective(data, template) {
         var elm;
@@ -73,7 +73,7 @@ describe('Directive: uiSelector', function () {
 
             var directiveScope = element.children().scope()
 
-            return expect(directiveScope.checkList.length).toBe(2);
+            return expect(directiveScope.itemsList.length).toBe(2);
 
             //return expect(element.text()).toBe('this is my directive');
         });
