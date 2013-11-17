@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89d2636f-68ab-481b-b4a2-434494cd9706" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Karma_jasmine_lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Karma_jasmine_lib.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/demo.css" afterPath="$PROJECT_DIR$/demo/demo.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/demo.html" afterPath="$PROJECT_DIR$/demo/demo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/demo.js" afterPath="$PROJECT_DIR$/demo/demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/karma.conf.js" afterPath="$PROJECT_DIR$/test/karma.conf.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/selector.js" afterPath="$PROJECT_DIR$/src/selector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/selector.spec.js" afterPath="$PROJECT_DIR$/test/selector.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ui-selector.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +29,7 @@
       <file leaf-file-name="demo.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/demo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="78" selection-start="451" selection-end="451" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="476">
+            <state line="15" column="4" selection-start="377" selection-end="377" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="476">
               <folding />
             </state>
           </provider>
@@ -45,7 +38,7 @@
       <file leaf-file-name="selector.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/selector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="43" selection-start="1611" selection-end="1617" vertical-scroll-proportion="0.4373928" vertical-offset="408" max-vertical-offset="1428">
+            <state line="71" column="24" selection-start="2898" selection-end="2898" vertical-scroll-proportion="1.3499142" vertical-offset="420" max-vertical-offset="1666">
               <folding />
             </state>
           </provider>
@@ -115,8 +108,8 @@
         <option value="$PROJECT_DIR$/test/selector.spec.js" />
         <option value="$PROJECT_DIR$/demo/demo.js" />
         <option value="$PROJECT_DIR$/demo/demo.css" />
-        <option value="$PROJECT_DIR$/src/selector.js" />
         <option value="$PROJECT_DIR$/demo/demo.html" />
+        <option value="$PROJECT_DIR$/src/selector.js" />
       </list>
     </option>
   </component>
@@ -464,14 +457,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/demo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="78" selection-start="451" selection-end="451" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="476">
+        <state line="15" column="4" selection-start="377" selection-end="377" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="476">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/selector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="43" selection-start="1611" selection-end="1617" vertical-scroll-proportion="0.4373928" vertical-offset="408" max-vertical-offset="1428">
+        <state line="71" column="24" selection-start="2898" selection-end="2898" vertical-scroll-proportion="1.3499142" vertical-offset="420" max-vertical-offset="1666">
           <folding />
         </state>
       </provider>

@@ -13,7 +13,7 @@ angular.module('ui.selector', [])
                     '<div class="overlay" ng-show="editMode"></div>' +
                     '<div class="modal" ng-show="editMode">' +
                     '<p ng-repeat="item in itemsListCopy">' +
-                    '<input type="checkbox" ng-model="item.value"> {{item.name}}' +
+                    '<input type="checkbox" ng-model="item.value"> {{item.text}}' +
                     '</p>' +
                     '<div class="position-canter">' +
                     '<button ng-click="saveEdit()">Save</button>' +
@@ -24,27 +24,33 @@ angular.module('ui.selector', [])
                 replace: true,
                 scope: {
                     itemsList: '=',
-                    itemText: "@",
-                    itemValue: "@"
+                    itemTextProp: "@",
+                    itemValueProp: "@"
                 },
                 link: function (scope, element, attrs) {
 
                     scope.editMode = false;
 
-                    var makeCopy = function () {
-                        scope.itemsListCopy = angular.copy(scope.itemsList);
+                    var makeCopy = function (source) {
+                        scope.itemsListCopy = [];
+                        angular.forEach(source, function(value, key){
+                            this.push({
+                                text : value[scope.itemTextProp],
+                                value : value[scope.itemValueProp]
+                            })
+                        }, scope.itemsListCopy);
                     };
 
                     var applyChanges = function () {
                         angular.forEach(scope.itemsListCopy, function(value, key){
-                            this[key].value = value.value;
+                            this[key][scope.itemValueProp] = value.value;
                         }, scope.itemsList);
                     };
 
                     scope.textBlockText = function () {
                         var trueArray = [];
                         angular.forEach(scope.itemsList, function (value) {
-                            !value.value || this.push(value.name);
+                            !value[scope.itemValueProp] || this.push(value[scope.itemTextProp]);
                         }, trueArray);
                         return trueArray.join('\n');
                     };
@@ -59,11 +65,19 @@ angular.module('ui.selector', [])
                     };
 
                     scope.cancelEdit = function() {
-                        makeCopy();
+                        makeCopy(scope.itemsList);
                         scope.editMode = false;
                     };
 
-                    makeCopy();
+                    scope.$watch(
+                        function (scope) {
+                            return scope.itemsList
+                        },
+                        function (value) {
+                            makeCopy(value);
+                        },
+                        true);
+
                 }
             }
         }]
