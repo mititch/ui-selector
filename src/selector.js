@@ -1,83 +1,52 @@
 /**
  * Created by mititch on 14.11.13.
  */
+'use strict';
+
 angular.module('ui.selector', [])
     .directive('uiSelector', [ '$log', '$parse',
         function (log, $parse) {
             return {
                 restrict: 'E',
                 template: '<div>' +
-                    '<textarea>{{textBlockText()}}</textarea>' +
-                    '<br>' +
+                    '<textarea readonly>{{selectedItem}}</textarea>' +
                     '<button ng-click="openEdit()">Edit</button>' +
-                    '<div class="overlay" ng-show="editMode"></div>' +
-                    '<div class="modal" ng-show="editMode">' +
-                    '<p ng-repeat="item in itemsListCopy">' +
-                    '<input type="checkbox" ng-model="item.value"> {{item.text}}' +
+                    '<div class="overlay" ng-show="data.editMode"></div>' +
+                    '<div class="modal" ng-show="data.editMode">' +
+                    '<p ng-repeat="item in data.items">' +
+                    '<input type="radio" ng-model="data.selectedItemCopy" value="{{item}}"> {{item}} <br/>' +
                     '</p>' +
-                    '<div class="position-canter">' +
+                    '<div class="position-center">' +
                     '<button ng-click="saveEdit()">Save</button>' +
                     '<button ng-click="cancelEdit()">Cancel</button>' +
                     '</div>' +
                     '</div>' +
                     '</div>',
-                replace: true,
+                //replace: true,
                 scope: {
-                    itemsList: '=',
-                    itemTextProp: "@",
-                    itemValueProp: "@"
+                    selectedItem: '='
                 },
                 link: function (scope, element, attrs) {
 
-                    scope.editMode = false;
-
-                    var makeCopy = function (source) {
-                        scope.itemsListCopy = [];
-                        angular.forEach(source, function(value, key){
-                            this.push({
-                                text : value[scope.itemTextProp],
-                                value : value[scope.itemValueProp]
-                            })
-                        }, scope.itemsListCopy);
-                    };
-
-                    var applyChanges = function () {
-                        angular.forEach(scope.itemsListCopy, function(value, key){
-                            this[key][scope.itemValueProp] = value.value;
-                        }, scope.itemsList);
-                    };
-
-                    scope.textBlockText = function () {
-                        var trueArray = [];
-                        angular.forEach(scope.itemsList, function (value) {
-                            !value[scope.itemValueProp] || this.push(value[scope.itemTextProp]);
-                        }, trueArray);
-                        return trueArray.join('\n');
+                    scope.data = {
+                        editMode : false,
+                        selectedItemCopy : '',
+                        items : ['First', 'Second', 'Third', 'Fourth', 'Fifth']
                     };
 
                     scope.openEdit = function () {
-                        scope.editMode = true;
+                        scope.data.selectedItemCopy = scope.selectedItem;
+                        scope.data.editMode = true;
                     }
 
                     scope.saveEdit = function() {
-                        applyChanges();
-                        scope.editMode = false;
+                        scope.selectedItem = scope.data.selectedItemCopy;
+                        scope.data.editMode = false;
                     };
 
                     scope.cancelEdit = function() {
-                        makeCopy(scope.itemsList);
-                        scope.editMode = false;
+                        scope.data.editMode = false;
                     };
-
-                    scope.$watch(
-                        function (scope) {
-                            return scope.itemsList
-                        },
-                        function (value) {
-                            makeCopy(value);
-                        },
-                        true);
-
                 }
             }
         }]

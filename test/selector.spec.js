@@ -19,7 +19,7 @@
     });
 });*/
 
-describe('Directive: uiSelector', function () {
+/*describe('Directive: uiSelector', function () {
     var element, scope, compile, defaultData,
         validTemplate = '<ui-selector items-list="data.checkList" item-text-prop="name" item-value-prop="value"></ui-selector>';
 
@@ -87,5 +87,5 @@ describe('Directive: uiSelector', function () {
     return describe('when destroyed', function () {
         // Add specs
     });
-});
+});*/
 
