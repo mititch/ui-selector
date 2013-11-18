@@ -1,42 +1,33 @@
 /**
  * Created by mititch on 15.11.13.
  */
-/*describe('Ctrl function', function () {
+describe('Directive: uiSelector', function () {
 
-    beforeEach(module('selectorDemoApp'));
-    describe('Ctrl', function () {
-        var scope;
+    var SELECTED_ITEM = 'First';
 
-        beforeEach(inject(function ($rootScope, $controller) {
-            scope = $rootScope.$new();
-            var ctrl = $controller('Ctrl', {$scope: scope});
-        }));
+    var VALID_TEMPLATE =
+        '<ui-selector selected-item="data.selectedItem"></ui-selector>';
 
-        it('should create "checkData.checkList" model with 3 items', function () {
-            expect(scope.checkData.checkList.length).toBe(3);
-        });
-
-    });
-});*/
-
-/*describe('Directive: uiSelector', function () {
-    var element, scope, compile, defaultData,
-        validTemplate = '<ui-selector items-list="data.checkList" item-text-prop="name" item-value-prop="value"></ui-selector>';
+    var $rootScope;
+    var $compile;
+    var defaultData;
 
     function createDirective(data, template) {
-        var elm;
 
         // Setup scope state
-        scope.data = data || defaultData;
+        $rootScope.data = data || defaultData;
+
+        // Create directive element
+        var element = angular.element(template || VALID_TEMPLATE);
 
         // Create directive
-        elm = compile(template || validTemplate)(scope);
+        $compile(element)($rootScope);
 
         // Trigger watchers
-        scope.$apply();
+        $rootScope.$apply();
 
         // Return
-        return elm;
+        return element;
     }
 
     beforeEach(function () {
@@ -46,10 +37,7 @@
 
         // Reset data each time
         defaultData = {
-            checkList: [
-                {name:'First', value:true },
-                {name:'Second', value:false },
-            ]
+            selectedItem: SELECTED_ITEM
         };
 
         // Provide any mocks needed
@@ -59,33 +47,97 @@
 
         // Inject in angular constructs otherwise,
         //  you would need to inject these into each test
-        inject(function ($rootScope, $compile) {
-            scope = $rootScope.$new();
-            compile = $compile;
+        inject(function (_$rootScope_, _$compile_) {
+            $rootScope = _$rootScope_.$new();
+            $compile = _$compile_;
         });
     });
 
     describe('when created', function () {
         // Add specs
 
-        it('should render the expected output', function () {
-            element = createDirective();
+        it('should have selectedItem equals "First"', function () {
 
-            var directiveScope = element.children().scope()
+            var element = createDirective();
 
-            return expect(directiveScope.itemsList.length).toBe(2);
+            var directiveScope = element.isolateScope();
 
-            //return expect(element.text()).toBe('this is my directive');
+            directiveScope.openEdit();
+
+            return expect(directiveScope.data.selectedItemCopy).toBe("First");
+
         });
 
     });
 
     describe('when the model changes', function () {
-        // Add specs
+
+        it('should have selectedItem equals "Second"', function () {
+
+            var element = createDirective();
+
+            $rootScope.data.selectedItem = "Second";
+
+            $rootScope.$digest();
+
+            var directiveScope = element.isolateScope();
+
+            directiveScope.openEdit();
+
+            return expect(directiveScope.data.selectedItemCopy).toBe("Second");
+
+        });
+
     });
 
-    return describe('when destroyed', function () {
-        // Add specs
+    describe('root model', function () {
+
+        describe('when the directive model changed and saved', function () {
+
+            it('should have selectedItem equals "Third"', function () {
+
+                var element = createDirective();
+
+                var directiveScope = element.isolateScope();
+
+                directiveScope.openEdit();
+
+                directiveScope.data.selectedItemCopy = "Third";
+
+                directiveScope.saveEdit();
+
+                $rootScope.$digest();
+
+                return expect($rootScope.data.selectedItem).toBe("Third");
+
+            });
+
+        });
+
+        describe('when the directive model changed but canceled', function () {
+
+            it('should have selectedItem equals "First"', function () {
+
+                var element = createDirective();
+
+                var directiveScope = element.isolateScope();
+
+                directiveScope.openEdit();
+
+                directiveScope.data.selectedItemCopy = "Third";
+
+                directiveScope.cancelEdit();
+
+                $rootScope.$digest();
+
+                return expect($rootScope.data.selectedItem).toBe("First");
+
+            });
+
+        });
+
     });
-});*/
+
+});
+
 

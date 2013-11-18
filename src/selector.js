@@ -28,7 +28,6 @@ angular.module('ui.selector', [])
                     '<button type="button" class="btn" ng-click="openEdit()">Edit</button>' +
                     '</div>' +
                     modalElement,
-                //replace: true,
                 scope: {
                     selectedItem: '='
                 },
