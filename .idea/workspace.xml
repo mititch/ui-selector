@@ -26,7 +26,7 @@
       <file leaf-file-name="demo.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/demo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="25" selection-start="362" selection-end="362" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="476">
+            <state line="14" column="21" selection-start="460" selection-end="460" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="527">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="selector.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/selector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="20" selection-start="846" selection-end="846" vertical-scroll-proportion="0.625" vertical-offset="51" max-vertical-offset="1496">
+            <state line="20" column="23" selection-start="744" selection-end="744" vertical-scroll-proportion="0.39673278" vertical-offset="0" max-vertical-offset="1615">
               <folding />
             </state>
           </provider>
@@ -120,9 +120,9 @@
         <option value="$PROJECT_DIR$/demo/demo.js" />
         <option value="$PROJECT_DIR$/test/ui-selector.spec.js" />
         <option value="$PROJECT_DIR$/demo/demo.css" />
-        <option value="$PROJECT_DIR$/demo/demo.html" />
         <option value="$PROJECT_DIR$/test/selector.spec.js" />
         <option value="$PROJECT_DIR$/test/karma.conf.js" />
+        <option value="$PROJECT_DIR$/demo/demo.html" />
         <option value="$PROJECT_DIR$/src/selector.js" />
       </list>
     </option>
@@ -352,7 +352,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.54844004" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35447338" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35447338" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -417,13 +417,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3757" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/angular-1.2.0/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17954" column="43" selection-start="624065" selection-end="624065" vertical-scroll-proportion="0.30255163" vertical-offset="304969" max-vertical-offset="340612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="24" selection-start="357" selection-end="357" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="629">
@@ -434,20 +427,6 @@
     <entry file="file://$PROJECT_DIR$/lib/bootstrap/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="50" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="38845">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="25" selection-start="362" selection-end="362" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="476">
           <folding />
         </state>
       </provider>
@@ -473,9 +452,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="21" selection-start="460" selection-end="460" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/angular-1.2.0/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1337" column="2" selection-start="36547" selection-end="36547" vertical-scroll-proportion="-1.3590047" vertical-offset="23876" max-vertical-offset="340612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/selector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="20" selection-start="846" selection-end="846" vertical-scroll-proportion="0.625" vertical-offset="51" max-vertical-offset="1496">
+        <state line="20" column="23" selection-start="744" selection-end="744" vertical-scroll-proportion="0.39673278" vertical-offset="0" max-vertical-offset="1615">
           <folding />
         </state>
       </provider>
