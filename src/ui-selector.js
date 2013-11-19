@@ -1,5 +1,4 @@
 /**
- * Created by mititch on 14.11.13.
  * Angular-ui ui-bootstrap module used for dialog creation
  */
 angular.module('ui.selector', ['ui.bootstrap'])
@@ -54,7 +53,6 @@ angular.module('ui.selector', ['ui.bootstrap'])
                 scope: {
                     selectedItem: '='
                 },
-
                 link: function (scope) {
 
                     scope.openEdit = function () {

@@ -1,14 +1,16 @@
 /**
- * Created by mititch on 14.11.13.
  * Twitter bootstrap with jQuery used for dialog creation
  */
 angular.module('selector', [])
 
-    .value('itemsList', ['First', 'Second', 'Third', 'Fourth', 'Fifth'])
+    .value(
+        'itemsList',
+        ['First', 'Second', 'Third', 'Fourth', 'Fifth']
+    )
 
-    .value('baseModalElement',
-        angular.element(
-            '<div id="myModal" class="modal hide">' +
+    .value(
+        'baseModalElement',
+        angular.element( '<div id="myModal" class="modal hide">' +
             '<div class="modal-body">' +
             '<div class="radio" ng-repeat="item in data.items">' +
             '<label>' +
@@ -18,9 +20,10 @@ angular.module('selector', [])
             '</div>' +
             '</div>' +
             '<div class="modal-footer">' +
-            '<button class="btn" ng-click="saveEdit()">Save</button>' +
+            '<button class="btn btn-primary" ng-click="saveEdit()">Save</button>' +
             '<button class="btn" ng-click="cancelEdit()">Cancel</button>' +
-            '</div>')
+            '</div>'
+        )
     )
 
     .directive('selector', ['itemsList', 'baseModalElement',
@@ -28,8 +31,7 @@ angular.module('selector', [])
 
             return {
                 restrict: 'E',
-                template:
-                    '<div class="form-inline">' +
+                template: '<div class="form-inline">' +
                     '<input type="text" class="form-control" readonly ng-model="selectedItem">' +
                     '<button type="button" class="btn" ng-click="openEdit()">Edit</button>' +
                     '</div>',
@@ -49,18 +51,22 @@ angular.module('selector', [])
 
                         // Setup scope data
                         scope.data = {
-                            selectedItemCopy: {},
-                            items: itemsList
+                            selectedItemCopy: {},   // Copy of selectedItem for dialog
+                            items: itemsList        // List of dialog items
                         };
 
                         // Open edit dialog
                         scope.openEdit = function () {
+
+                            // Make copy of selected item and pass to dialog
                             scope.data.selectedItemCopy = scope.selectedItem;
                             modalElement.modal("show");
                         }
 
                         // Save edit result
                         scope.saveEdit = function () {
+
+                            // Apply changes from dialog
                             scope.selectedItem = scope.data.selectedItemCopy;
                             modalElement.modal("hide");
                         };
