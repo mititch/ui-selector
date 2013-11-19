@@ -3,7 +3,7 @@
  */
 var selectorDemoApp = angular.module('selectorDemoApp', ['selector']);
 
-selectorDemoApp.controller('Ctrl', ['$scope', function ($scope) {
+selectorDemoApp.controller('TestController', ['$scope', function ($scope) {
     $scope.data = {
         selectedItem: 'First'
     };

@@ -3,14 +3,14 @@
  */
 describe('Directive: selector', function () {
 
-    var SELECTED_ITEM = 'First';
-
     var VALID_TEMPLATE =
         '<selector selected-item="data.selectedItem"></selector>';
 
-    var $rootScope;
-    var $compile;
-    var defaultData;
+    var someItem;    // some element from items list
+    var otherItem;   // some other element from items list
+    var $rootScope;     //root scope object reference
+    var $compile;       //compile function reference
+    var defaultData;    //object with default data
 
     function createDirective(data, template) {
 
@@ -35,57 +35,48 @@ describe('Directive: selector', function () {
         // Load the directive's module
         module('selector');
 
-        // Reset data each time
-        defaultData = {
-            selectedItem: SELECTED_ITEM
-        };
-
         // Provide any mocks needed
         module(function ($provide) {
             //$provide.value('Name', new MockName());
         });
 
-        // Inject in angular constructs otherwise,
-        //  you would need to inject these into each test
-        inject(function (_$rootScope_, _$compile_) {
+        // Inject in angular and module constructs
+        inject(function (_$rootScope_, _$compile_, itemsList) {
             $rootScope = _$rootScope_.$new();
             $compile = _$compile_;
+            someItem = itemsList[0];
+            otherItem = itemsList[1];
         });
+
+        // Reset data each time
+        defaultData = {
+            selectedItem: someItem
+        };
     });
 
     describe('when created', function () {
         // Add specs
 
-        it('should have selectedItem equals "First"', function () {
-
+        it('dialog should have selectedItemCopy equals root scope selectedItem', function () {
+            //$scope.data.selectedItem = someItem;
             var element = createDirective();
-
+            //$rootScope.$digest();
             var directiveScope = element.isolateScope();
-
             directiveScope.openEdit();
-
-            return expect(directiveScope.data.selectedItemCopy).toBe("First");
-
+            return expect(directiveScope.data.selectedItemCopy).toBe(someItem);
         });
 
     });
 
     describe('when the model changes', function () {
 
-        it('should have selectedItem equals "Second"', function () {
-
+        it('dialog should have selectedItemCopy equals root scope selectedItem', function () {
             var element = createDirective();
-
-            $rootScope.data.selectedItem = "Second";
-
+            $rootScope.data.selectedItem = otherItem;
             $rootScope.$digest();
-
             var directiveScope = element.isolateScope();
-
             directiveScope.openEdit();
-
-            return expect(directiveScope.data.selectedItemCopy).toBe("Second");
-
+            return expect(directiveScope.data.selectedItemCopy).toBe(otherItem);
         });
 
     });
@@ -94,44 +85,28 @@ describe('Directive: selector', function () {
 
         describe('when the directive model changed and saved', function () {
 
-            it('should have selectedItem equals "Third"', function () {
-
+            it('root scope should have selectedItem equals new value', function () {
                 var element = createDirective();
-
                 var directiveScope = element.isolateScope();
-
                 directiveScope.openEdit();
-
-                directiveScope.data.selectedItemCopy = "Third";
-
+                directiveScope.data.selectedItemCopy = otherItem;
                 directiveScope.saveEdit();
-
                 $rootScope.$digest();
-
-                return expect($rootScope.data.selectedItem).toBe("Third");
-
+                return expect($rootScope.data.selectedItem).toBe(otherItem);
             });
 
         });
 
         describe('when the directive model changed but canceled', function () {
 
-            it('should have selectedItem equals "First"', function () {
-
+            it('root scope should have selectedItem equals old value', function () {
                 var element = createDirective();
-
                 var directiveScope = element.isolateScope();
-
                 directiveScope.openEdit();
-
-                directiveScope.data.selectedItemCopy = "Third";
-
+                directiveScope.data.selectedItemCopy = otherItem;
                 directiveScope.cancelEdit();
-
                 $rootScope.$digest();
-
-                return expect($rootScope.data.selectedItem).toBe("First");
-
+                return expect($rootScope.data.selectedItem).toBe(someItem);
             });
 
         });

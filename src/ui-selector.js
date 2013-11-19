@@ -1,5 +1,6 @@
 /**
  * Created by mititch on 14.11.13.
+ * Angular-ui ui-bootstrap module used for dialog creation
  */
 angular.module('ui.selector', ['ui.bootstrap'])
     .run(["$templateCache", function ($templateCache) {
@@ -18,6 +19,12 @@ angular.module('ui.selector', ['ui.bootstrap'])
             '<div class="modal-footer">' +
             '<button class="btn btn-primary" ng-click="save()">Save</button>' +
             '<button class="btn btn-warning" ng-click="cancel()">Cancel</button>' +
+            '</div>'
+        );
+        $templateCache.put("uiSelectorContent.html",
+            '<div class="form-inline">' +
+            '<input type="text" class="form-control" readonly ng-model="selectedItem">' +
+            '<button type="button" class="btn" ng-click="openEdit()">Edit</button>' +
             '</div>'
         );
     }])
@@ -42,11 +49,7 @@ angular.module('ui.selector', ['ui.bootstrap'])
 
             return {
                 restrict: 'E',
-                template:
-                    '<div class="form-inline">' +
-                    '<input type="text" class="form-control" readonly ng-model="selectedItem">' +
-                    '<button type="button" class="btn" ng-click="openEdit()">Edit</button>' +
-                    '</div>',
+                templateUrl: 'uiSelectorContent.html',
                 replace: true,
                 scope: {
                     selectedItem: '='
@@ -72,8 +75,6 @@ angular.module('ui.selector', ['ui.bootstrap'])
                     };
                 }
             }
-
-
         }]
     );
 
