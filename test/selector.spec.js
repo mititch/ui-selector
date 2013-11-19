@@ -1,12 +1,12 @@
 /**
  * Created by mititch on 15.11.13.
  */
-describe('Directive: uiSelector', function () {
+describe('Directive: selector', function () {
 
     var SELECTED_ITEM = 'First';
 
     var VALID_TEMPLATE =
-        '<ui-selector selected-item="data.selectedItem"></ui-selector>';
+        '<selector selected-item="data.selectedItem"></selector>';
 
     var $rootScope;
     var $compile;
@@ -33,7 +33,7 @@ describe('Directive: uiSelector', function () {
     beforeEach(function () {
 
         // Load the directive's module
-        module('ui.selector');
+        module('selector');
 
         // Reset data each time
         defaultData = {
